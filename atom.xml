@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-03T13:04:10.267Z</updated>
+  <updated>2021-02-06T10:33:04.634Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,12 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>hello</title>
-    <link href="http://example.com/2021/01/03/hello/"/>
-    <id>http://example.com/2021/01/03/hello/</id>
-    <published>2021-01-03T13:04:10.000Z</published>
-    <updated>2021-01-03T13:04:10.267Z</updated>
+    <title>使用Swift语言时，如何使用热修复机制</title>
+    <link href="http://example.com/2021/02/06/hello/"/>
+    <id>http://example.com/2021/02/06/hello/</id>
+    <published>2021-02-06T10:33:16.000Z</published>
+    <updated>2021-02-06T10:33:04.634Z</updated>
     
+    <content type="html"><![CDATA[<p>OC语言是动态语言，所以其可以直接使用<code>Aspects</code>库进行线上版本热修复，但是如果采用Swift语言编码时，由于Swift是静态语言，没有动态转发的特性，所以直接使用<code>Aspects</code>库对其属性或函数进行线上热修就不生效了，肿么办呢？<br>解决方案就是：可以使用<code>@objc</code>关键字修饰属性或函数，他的作用主要是方便将类、方法、属性暴露出给OC文件调用，但是有时热修并不生效（应该是热修时仍然未找到对应的属性或函数，具体原因还未查到，有知道的大佬可以告知下），绝处逢生，既然这条路有问题了，本着开发不屈不挠的精神想着肯定还有其他解决方案，果然发现了另外一个关键字<code>dynamic</code>，使用<code>dynamic</code>关键字修饰属性或函数，使具有动态转发的特性，但是<code>dynamic</code>不能修饰结构体和枚举，用了这个关键字后再也不怕热修不生效啦😜。<br>最后提醒下大家，热修虽好用，也不能滥用喔，还是要尽量保证线上版本质量，不到万不得已不要使用喔</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;OC语言是动态语言，所以其可以直接使用&lt;code&gt;Aspects&lt;/code&gt;库进行线上版本热修复，但是如果采用Swift语言编码时，由于Swift是静态语言，没有动态转发的特性，所以直接使用&lt;code&gt;Aspects&lt;/code&gt;库对其属性或函数进行线上热修就不生效了，肿</summary>
+      
     
     
     
